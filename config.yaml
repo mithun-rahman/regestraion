@@ -1,0 +1,7 @@
+postgres:
+  User:     "postgres"
+  Password: "123"
+  Name:     "user_management"
+  Port:     "5432"
+app:
+  Port:     "3333"
