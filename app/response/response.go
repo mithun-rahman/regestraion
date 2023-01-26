@@ -1,38 +1,10 @@
-package model
+package response
 
 import (
 	"encoding/json"
 	"fmt"
 	"net/http"
 )
-
-type Users struct {
-	User_name string `json:"user_name"`
-	Password  string `json:",omitempty"`
-	Email     string `json:"email"`
-}
-
-type User struct {
-	User_name string `json:"user_name"`
-	Email     string `json:"email"`
-}
-
-type Token struct {
-	AccessToken  string `json:"access_token"`
-	RefreshToken string `json:"refresh_token"`
-}
-
-type RefreshToken struct {
-	Refresh_token string `json:"refresh_token"`
-}
-
-type Error struct {
-	Message string `json:"message"`
-}
-
-type Err struct {
-	Message string `json:"message"`
-}
 
 type Response struct {
 	Status  int         `json:"status"`
@@ -41,7 +13,6 @@ type Response struct {
 }
 
 func (r *Response) ServeJSON(w http.ResponseWriter) error {
-
 	resp := &Response{
 		Data:    r.Data,
 		Status:  r.Status,
@@ -62,13 +33,12 @@ func (r *Response) ServeJSON(w http.ResponseWriter) error {
 
 	switch v := resp.Data.(type) {
 	case Token:
-		fmt.Println(v)
 		if err := json.NewEncoder(w).Encode(resp.Data.(Token)); err != nil {
+			fmt.Println(v)
 			return err
 		}
 	case Users:
-		user := User{resp.Data.(Users).User_name, resp.Data.(Users).Email}
-		if err := json.NewEncoder(w).Encode(user); err != nil {
+		if err := json.NewEncoder(w).Encode(resp.Data.(Users)); err != nil {
 			return err
 		}
 	}

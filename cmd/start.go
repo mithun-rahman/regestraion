@@ -14,7 +14,7 @@ func init() {
 }
 
 var startCmd = &cobra.Command{
-	Use:     "serve",
+	Use:     "serv",
 	Short:   "start the server",
 	Aliases: []string{"begin, stat"},
 	Args:    cobra.ExactArgs(1),

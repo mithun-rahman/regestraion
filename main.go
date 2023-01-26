@@ -1,6 +1,8 @@
 package main
 
-import "RegLog/cmd"
+import (
+	"RegLog/cmd"
+)
 
 func main() {
 	cmd.Execute()

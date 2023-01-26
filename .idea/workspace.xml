@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4a142e-45f1-474b-af8d-29444ebd7401" name="Changes" comment="" />
+    <list default="true" id="7d4a142e-45f1-474b-af8d-29444ebd7401" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/brands.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/middleware/limiter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/response/model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/response/response.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo/token.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/brand.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/validation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/rest.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/rest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/postgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/postgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/infra/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/postgres/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/infra/postgres/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo/brand.go" beforeDir="false" afterPath="$PROJECT_DIR$/repo/brand.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +42,9 @@
     </option>
   </component>
   <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.19.3" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -67,16 +94,5 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/db_test.go</url>
-          <line>2</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -3,5 +3,14 @@ postgres:
   Password: "123"
   Name:     "user_management"
   Port:     "5432"
+
 app:
-  Port:     "3333"
+  Port:     3333
+  Host:     "localhost"
+
+serverInf:
+  ReadTimeOut:  5
+  WriteTimeout: 5
+  IdleTimeout: 30
+  ReadHeaderTimeout: 2
+  GracePeriod: 10

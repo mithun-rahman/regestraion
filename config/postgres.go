@@ -1,41 +1,43 @@
 package config
 
 import (
+	"RegLog/app/response"
 	"github.com/spf13/viper"
 	"sync"
 )
 
-// Postgres holds postgres config
-type Postgres struct {
-	User     string `yaml:"user"`
-	Password string `yaml:"password"`
-	Name     string `yaml:"name"`
-	DbPort   string `yaml:"dbPort"`
-	AppPort  string `yaml:"appPort"`
-}
-
 var postgresOnce = sync.Once{}
-var postgresConfig *Postgres
+var postgresConfig *response.Postgres
+var srvrInfo *response.ServerInfo
 
 // loadPostgres loads config from path
 func loadPostgres(fileName string) error {
 	readConfig(fileName)
 	viper.AutomaticEnv()
 
-	postgresConfig = &Postgres{
+	srvrInfo = &response.ServerInfo{
+		ReadTimeout:       viper.GetInt("serverInf.ReadTimeOut"),
+		WriteTimeout:      viper.GetInt("serverInf.WriteTimeout"),
+		IdleTimeout:       viper.GetInt("serverInf.IdleTimeout"),
+		ReadHeaderTimeout: viper.GetInt("serverInf.ReadHeaderTimeout"),
+		GracePeriod:       viper.GetInt("serverInf.GracePeriod"),
+	}
+
+	postgresConfig = &response.Postgres{
 		User:     viper.GetString("postgres.User"),
 		Password: viper.GetString("postgres.Password"),
 		Name:     viper.GetString("postgres.Name"),
 		DbPort:   viper.GetString("postgres.Port"),
-		AppPort:  viper.GetString("app.Port"),
+		AppPort:  viper.GetInt("app.Port"),
+		Host:     viper.GetString("app.Host"),
 	}
 	return nil
 }
 
 // GetloadPostgres returns postgres config
-func GetPostgres(fileName string) *Postgres {
+func GetPostgres(fileName string) (*response.Postgres, *response.ServerInfo) {
 	postgresOnce.Do(func() {
 		loadPostgres(fileName)
 	})
-	return postgresConfig
+	return postgresConfig, srvrInfo
 }

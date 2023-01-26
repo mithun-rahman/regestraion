@@ -9,6 +9,7 @@ import (
 	"github.com/golang-jwt/jwt"
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
 func Server(port string) {
@@ -31,17 +32,24 @@ func Server(port string) {
 	r.Use(middleware.Recoverer)
 	r.Use(middle.Limit)
 
-	//r.Post("/reg", middle.Limit(con.Register))
-	//r.Post("/log", middle.Limit(con.Login))
-	//r.Get("/user", middle.Limit(con.GetUser))
-	//r.Post("/refresh", middle.Limit(con.RefreshToken))
-
 	r.Post("/reg", con.Register)
 	r.Post("/log", con.Login)
 	r.Get("/user", con.GetUser)
 	r.Post("/refresh", con.RefreshToken)
 
 	port = ":" + port
-	http.ListenAndServe(port, r)
+	srvr := http.Server{
+		Addr:    port,
+		Handler: r,
+		//ErrorLog: logger.DefaultErrLogger,
+		//WriteTimeout: cfg.WriteTimeout,
+		//ReadTimeout:  cfg.ReadTimeout,
+		ReadTimeout:       5 * time.Second,
+		WriteTimeout:      5 * time.Second,
+		IdleTimeout:       30 * time.Second,
+		ReadHeaderTimeout: 2 * time.Second,
+	}
+	srvr.ListenAndServe()
+	//http.ListenAndServe(port, r)
 
 }
